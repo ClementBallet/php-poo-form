@@ -1,14 +1,16 @@
 <?php
+namespace Solution;
+
+use \Solution\Champ;
 
 class Form
 {
+    private string $nameAttr;
+    private string $methodAttr;
+    private string $actionAttr;
+    private array $tableauChamps;
 
-    private $nameAttr;
-    private $methodAttr;
-    private $actionAttr;
-    private $tableauChamps;
-
-    public function __construct($nameAttr, $methodAttr, $actionAttr)
+    public function __construct(string $nameAttr, string $methodAttr, string $actionAttr)
     {
         $this->nameAttr = $nameAttr;
         $this->methodAttr = $methodAttr;
@@ -16,14 +18,14 @@ class Form
         $this->tableauChamps = [];
     }
 
-    public function ajouterChamp($inputType, $inputName, $label)
+    public function ajouterChamp(string $inputType, string $inputName, string $label): array
     {
         $input = new Champ($inputType, $inputName, $label);
         $this->tableauChamps[] = $input->genererChamp();
-        var_dump($this->tableauChamps);
+        return $this->tableauChamps;
     }
 
-    public function generer()
+    public function generer(): void
     {
         echo "<form name='$this->nameAttr' method='$this->methodAttr' action='$this->actionAttr'>";
 
@@ -36,5 +38,4 @@ class Form
 
         echo "</form>";
     }
-
 }

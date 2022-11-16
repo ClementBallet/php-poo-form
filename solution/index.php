@@ -1,7 +1,11 @@
 <?php
 // Fonction permettant de charger automatiquement les classes nécessaires
+use \Solution\Form;
+
 spl_autoload_register(function ($class) {
-    include $class . '.class.php';
+    $class = str_replace('Solution\\', '', $class);
+    $class = str_replace('\\', '/', $class);
+    require $class . '.class.php';
 });
 ?>
 

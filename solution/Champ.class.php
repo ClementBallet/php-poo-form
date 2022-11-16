@@ -1,33 +1,38 @@
 <?php
+namespace Solution;
 
 class Champ
 {
-    private $inputType;
-    private $inputName;
-    private $label;
+    private string $inputType;
+    private string $inputName;
+    private string $label;
 
-    public function __construct($inputType, $inputName, $label)
+    public function __construct(string $inputType, string $inputName, string $label)
     {
         $this->inputType = $inputType;
         $this->inputName = $inputName;
         $this->label = $label;
     }
 
-    private function genererLabel()
+    private function genererLabel(): string
     {
         return "<label for='$this->inputName'>$this->label</label>";
     }
 
-    private function genererInput()
+    private function genererInput(): string
     {
-        return "<input type='$this->inputType' id='$this->inputName' name='$this->inputName' >";
+        return "<input type='$this->inputType' id='$this->inputName' name='$this->inputName'>";
     }
 
-    public function genererChamp()
+    public function genererChamp(): string
     {
+        $champs = "";
+
         if ($this->inputType !== "submit") {
-            $this->genererLabel();
+            $champs .= $this->genererLabel();
         }
-        $this->genererInput();
+
+        $champs .= $this->genererInput();
+        return $champs;
     }
 }
