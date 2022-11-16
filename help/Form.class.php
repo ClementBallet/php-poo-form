@@ -5,7 +5,7 @@ class Form
 
     // A compléter
 
-    public function __construct($nameAttr, $methodAttr, $actionAttr)
+    public function __construct($formName, $formMethod, $formAction)
     {
         // A compléter
     }
@@ -17,6 +17,7 @@ class Form
 
     public function generer()
     {
+        // Compléter les attributs de la balise <form>
         echo "<form name='' method='' action=''>";
 
         // Ajouter les champs à l'aide de la boucle foreach()

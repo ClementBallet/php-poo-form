@@ -1,7 +1,7 @@
 <?php
 // Fonction permettant de charger automatiquement les classes nécessaires
 spl_autoload_register(function ($class) {
-    include $class . '.class.php';
+    require $class . '.class.php';
 });
 ?>
 
