@@ -1,7 +1,8 @@
 <?php
-// Fonction permettant de charger automatiquement les classes nécessaires
+
 use \Solution\Form;
 
+// Fonction permettant de charger automatiquement les classes nécessaires
 spl_autoload_register(function ($class) {
     $class = str_replace('Solution\\', '', $class);
     $class = str_replace('\\', '/', $class);
@@ -24,7 +25,7 @@ spl_autoload_register(function ($class) {
 
 // On crée un nouvel objet formulaire
 $formulaire = new Form("test", "post", $_SERVER['PHP_SELF']);
-// On ajoute des champs en précisant leur type et leur nom
+// On ajoute des champs en précisant leur type, leur nom et le contenu du label
 $formulaire->ajouterChamp("text", "nom", "Votre nom");
 $formulaire->ajouterChamp("number", "age", "Votre âge");
 $formulaire->ajouterChamp("submit", "", "");

@@ -5,16 +5,16 @@ use \Solution\Champ;
 
 class Form
 {
-    private string $nameAttr;
-    private string $methodAttr;
-    private string $actionAttr;
-    private array $tableauChamps;
+    private string $formName;
+    private string $formMethod;
+    private string $formAction;
+    private array  $tableauChamps;
 
-    public function __construct(string $nameAttr, string $methodAttr, string $actionAttr)
+    public function __construct(string $formName, string $formMethod, string $formAction)
     {
-        $this->nameAttr = $nameAttr;
-        $this->methodAttr = $methodAttr;
-        $this->actionAttr = $actionAttr;
+        $this->formName      = $formName;
+        $this->formMethod    = $formMethod;
+        $this->formAction    = $formAction;
         $this->tableauChamps = [];
     }
 
@@ -27,7 +27,7 @@ class Form
 
     public function generer(): void
     {
-        echo "<form name='$this->nameAttr' method='$this->methodAttr' action='$this->actionAttr'>";
+        echo "<form name='$this->formName' method='$this->formMethod' action='$this->formAction'>";
 
         foreach ($this->tableauChamps as $champ)
         {

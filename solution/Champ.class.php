@@ -11,7 +11,7 @@ class Champ
     {
         $this->inputType = $inputType;
         $this->inputName = $inputName;
-        $this->label = $label;
+        $this->label     = $label;
     }
 
     private function genererLabel(): string
@@ -28,7 +28,8 @@ class Champ
     {
         $champs = "";
 
-        if ($this->inputType !== "submit") {
+        if ($this->inputType !== "submit")
+        {
             $champs .= $this->genererLabel();
         }
 
