@@ -30,9 +30,10 @@ $formulaire->ajouterChamp("text", "nom", "Votre nom");
 $formulaire->ajouterChamp("number", "age", "Votre âge");
 $formulaire->ajouterChamp("submit", "", "");
 // On génère le formulaire pour l'afficher dans la page HTML
-$formulaire->generer();
+echo $formulaire->generer();
 
-if (isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['age']) && !empty($_POST['age'])) {
+$verification = isset($_POST['nom']) && !empty($_POST['nom']) && isset($_POST['age']) && !empty($_POST['age']);
+if ($verification) {
     echo "<p>Vous vous appelez " . $_POST['nom'] . " et vous avez " . $_POST['age'] . " ans</p>";
 }
 
